@@ -1,0 +1,15 @@
+color_reset(){ printf '\033[0;37m';}
+
+pprint "\nEnter Your Values Below\n\n\n"
+pprint "API ID: "; color_reset; read api_id
+pprint "\nAPI HASH: "; color_reset; read api_hash
+
+if [ -f .env ]; then
+	rm .env
+fi
+
+echo """API_ID = $api_id
+API_HASH = $api_hash""" > .env
+
+clear
+pprint "\n\n\nYour Vars have been saved Successfully! Now start bot by bash start"
